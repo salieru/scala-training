@@ -11,9 +11,11 @@ libraryDependencies ++= Seq(
   ("org.apache.spark" %% "spark-sql" % sparkVersion % "provided")
     .cross(CrossVersion.for3Use2_13),
   ("org.apache.spark" %% "spark-hive" % sparkVersion % "provided")
-    .cross(CrossVersion.for3Use2_13)
+    .cross(CrossVersion.for3Use2_13),
+  "com.typesafe" % "config" % "1.4.3",
+  "org.scalatest" %% "scalatest" % "3.2.15" % "test"
+
 )
-libraryDependencies += "com.typesafe" % "config" % "1.4.3"
 
 assembly / assemblyMergeStrategy := {
   case "META-INF/services/org.apache.spark.sql.sources.DataSourceRegister" => MergeStrategy.concat
