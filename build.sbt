@@ -7,13 +7,17 @@ scalaVersion := "3.3.3"
 val sparkVersion = "3.5.1"
 libraryDependencies ++= Seq(
   ("org.apache.spark" %% "spark-core" % sparkVersion % "provided")
-    .cross(CrossVersion.for3Use2_13),
+    .cross(CrossVersion.for3Use2_13) ,
   ("org.apache.spark" %% "spark-sql" % sparkVersion % "provided")
-    .cross(CrossVersion.for3Use2_13),
+    .cross(CrossVersion.for3Use2_13) ,
   ("org.apache.spark" %% "spark-hive" % sparkVersion % "provided")
-    .cross(CrossVersion.for3Use2_13)
+    .cross(CrossVersion.for3Use2_13) ,
+  "com.typesafe" % "config" % "1.4.3",
+  ("org.scalatest" %% "scalatest" % "3.3.3" % "test")
+    .cross(CrossVersion.for3Use2_13),
+//  ("org.scalactic" %% "scalactic" % "3.3.3" % "test")
+//    .cross(CrossVersion.for3Use2_13),
 )
-libraryDependencies += "com.typesafe" % "config" % "1.4.3"
 
 assembly / assemblyMergeStrategy := {
   case "META-INF/services/org.apache.spark.sql.sources.DataSourceRegister" => MergeStrategy.concat
