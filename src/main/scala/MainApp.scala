@@ -8,10 +8,13 @@ object MainApp extends App {
 
   println(c)
 
-  val config = ConfigFactory.load("application.conf").getConfig("properties")
-  val sparkConfig = config.getConfig("spark")
-  val mysqlConfig = config.getConfig("mysql")
-  val appName = sparkConfig.getString("app-name")
-  println(appName) // my-amazing-app
+  def loadConfig() = {
+    val config = ConfigFactory.load("application.conf").getConfig("properties")
+    val sparkConfig = config.getConfig("spark")
+    val mysqlConfig = config.getConfig("mysql")
+    val appName = sparkConfig.getString("app-name")
+    appName
+  }
+
 
 }
