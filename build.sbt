@@ -6,14 +6,15 @@ scalaVersion := "3.3.3"
 
 val sparkVersion = "3.5.1"
 libraryDependencies ++= Seq(
-  ("org.apache.spark" %% "spark-core" % sparkVersion % "provided"),
-//    .cross(CrossVersion.for3Use2_13),
-  ("org.apache.spark" %% "spark-sql" % sparkVersion % "provided"),
-//    .cross(CrossVersion.for3Use2_13),
-  ("org.apache.spark" %% "spark-hive" % sparkVersion % "provided"),
-//    .cross(CrossVersion.for3Use2_13),
+  ("org.apache.spark" %% "spark-core" % sparkVersion % "provided")
+    .cross(CrossVersion.for3Use2_13),
+  ("org.apache.spark" %% "spark-sql" % sparkVersion % "provided")
+    .cross(CrossVersion.for3Use2_13),
+  ("org.apache.spark" %% "spark-hive" % sparkVersion % "provided")
+    .cross(CrossVersion.for3Use2_13),
   "com.typesafe" % "config" % "1.4.3",
-  "org.scalatest" %% "scalatest" % "3.2.15" % "test"
+  ("org.scalatest" %% "scalatest" % sparkVersion % "test")
+    .cross(CrossVersion.for3Use2_13),
 
 )
 
