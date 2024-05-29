@@ -13,7 +13,8 @@ libraryDependencies ++= Seq(
   ("org.apache.spark" %% "spark-hive" % sparkVersion % "provided")
     .cross(CrossVersion.for3Use2_13),
   "com.typesafe" % "config" % "1.4.3",
-  "org.scalatest" %% "scalatest" % "3.2.15" % "test"
+  ("org.scalatest" %% "scalatest" % "3.2.15" % "test")
+    .cross(CrossVersion.for3Use2_13),
 )
 
 assembly / assemblyMergeStrategy := {
